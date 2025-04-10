@@ -22,7 +22,13 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, error: 'Something went wrong!' });
 });
-
+app.get("/hlo",(req,res)=>{
+  res.send("fgs");
+});
+app.use((req,res,next)=>{
+  console.log(req.body);
+  next();
+});
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
